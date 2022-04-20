@@ -34,17 +34,20 @@
     </header>
     <p>  .</p>
     <form action="">
-      <fieldset id="usuario"><legend>Identificação do Usuário</legend>
-      <p>Nome: <input type="text" name="tNome" id="cNome"></p>
-      <p>Senha: <input type="password" name="tSenha" id="cSenha"></p>
-      <p>E-mail: <input type="text" name="tEmail" id="cEmail"> </p>
-      <fieldset id="sexo"><legend>Sexo: </legend> <p> Masculino</p> <p>Feminino</p></fieldset>
-      <p>Data de Nascimento: <input type="date" name="" id=""> </p>
+      <fieldset id="usuario"><legend>Identificação do Usuário </legend>
+      <p><label for="cNome">Nome:</label><input type="text" name="tNome" id="cNome" size="30" maxlength="30" placeholder="Nome Completo" ></p>
+      <p><label for="cSenha">Senha:</label><input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
+      <p><label for="cEmail">E-mail:</label><input type="email" name="tEmail" id="cEmail" size="40" maxlength="40" placeholder="e-mail"> </p>
+      <fieldset id="sexo"><legend>Sexo: </legend>
+        <input type="radio" name="tSex" id="cFem" checked><label for="cFem">Feminino</label><br>
+        <input type="radio" name="tSex" id="cMas"><label for="cMas">Masculino</label>
+      </fieldset>
+      <p><label for="cNasc">Data de Nascimento:</label><input type="date" name="tNasc" id="cNasc"> </p>
       </fieldset>
 
       <fieldset id="endereco"><legend>Endereço do Usuário</legend>
       <p>Logradouro: <input type="text" name="" id=""></p>
-      <p>Número: <input type="number" name="" id=""></p>
+      <p>Número: <input type="number" name="tNum" id="cNum"></p>
       <p>Estado: <input type="text" name="" id=""> </p>
       <p>Cidade: <input type="text" name="" id=""> </p>
       </fieldset>
