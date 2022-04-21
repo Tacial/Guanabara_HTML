@@ -4,7 +4,15 @@
   <meta charset="UTF-8">
   <title>HTML - Guanabara</title>
   <link rel="stylesheet" href="estilo.css" />
-  <link href="js.js" />
+  <script language="javascript" src="js.js"></script>
+  <script>
+    function calc_total() {
+      var qtd = document.getElementById('cQtd').value;
+      var tot = qtd * 1500;
+      document.getElementById('cTot').value = tot;
+    }
+  </script>
+
  </head>
  
 <body>
@@ -12,9 +20,7 @@
     <header id="cabecalho">
       <hgroup>
         <h1>Google Glass</h1>
-        <h2>A revolução do Google está chegando</h2>
       </hgroup>
-
       <img id="icone" src="contato.png" />
       <nav id="menu">
         <h1>Menu Principal</h1>
@@ -33,38 +39,61 @@
       </hgroup>
     </header>
     <p>  .</p>
-    <form action="">
+    <form method="post" id="fContato" action="mailto:contato@cursoemvideo.com" oninput="calc_total()">
       <fieldset id="usuario"><legend>Identificação do Usuário </legend>
-      <p><label for="cNome">Nome:</label><input type="text" name="tNome" id="cNome" size="30" maxlength="30" placeholder="Nome Completo" ></p>
+      <p><label for="cNome">Nome:</label><input type="text" name="tNome" id="cNome" size="30" maxlength="30" placeholder="nome completo" ></p>
       <p><label for="cSenha">Senha:</label><input type="password" name="tSenha" id="cSenha" size="8" maxlength="8" placeholder="8 dígitos"></p>
       <p><label for="cEmail">E-mail:</label><input type="email" name="tEmail" id="cEmail" size="40" maxlength="40" placeholder="e-mail"> </p>
       <fieldset id="sexo"><legend>Sexo: </legend>
         <input type="radio" name="tSex" id="cFem" checked><label for="cFem">Feminino</label><br>
         <input type="radio" name="tSex" id="cMas"><label for="cMas">Masculino</label>
       </fieldset>
-      <p><label for="cNasc">Data de Nascimento:</label><input type="date" name="tNasc" id="cNasc"> </p>
+      <p><label for="cNasc">Data de Nascimento: </label><input type="date" name="tNasc" id="cNasc"> </p>
       </fieldset>
+      <!-- aula 33 -->
 
       <fieldset id="endereco"><legend>Endereço do Usuário</legend>
-      <p>Logradouro: <input type="text" name="" id=""></p>
-      <p>Número: <input type="number" name="tNum" id="cNum"></p>
-      <p>Estado: <input type="text" name="" id=""> </p>
-      <p>Cidade: <input type="text" name="" id=""> </p>
+        <p><label for="cRua">Logradouro:</label> <input type="text" name="tRua" id="cRua" size="40" maxlength="40" placeholder="endereço"></p>
+        <p><label for="cNum">Número: </label><input type="number" name="tNum" id="cNum" min="0" max="9999"></p>
+        <p><label for="cCom">Complemento:</label> <input type="text" name="tCom" id="cCom" size="20" maxlength="20" placeholder="complemento"></p>
+        <p><label for="cUF">Estado:</label> <select name="tUF" id="cUF">
+            <optgroup label="Sudeste">
+              <option value="ES">ES</option>
+              <option value="MG">MG</option>
+              <option value="RJ">RJ</option>
+              <option value="SP" selected>SP</option> </optgroup>
+            <optgroup label="Sul">
+              <option value="PR">PR</option>
+              <option value="RS">RS</option>
+              <option value="SC">SC</option> </optgroup>
+          </select> </p>
+        <p><label for="cCid">Cidade:</label> <input type="text" name="tCid" id="cCid" size="40" maxlength="40" placeholder="sua cidade" list="cidades">
+        <datalist id="cidades">
+          <option value="Belo Horizonte"></option>
+          <option value="Curitiba"></option>
+          <option value="Florianópolis"></option>
+          <option value="Porto Alegre"></option>
+          <option value="Rio de Janeiro"></option>
+          <option value="São Paulo"></option>
+          <option value="Vitória"></option>
+        </datalist> </p>
       </fieldset>
 
       <fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
-      <p>Grau de Urgência (barra)</p>
-      <p>Mensagem</p>
+      <p><label for="">Grau de Urgência: </label> Min <input type="range" name="tUrg" id="cUrg" min="0" max="10" step="1"> Máx</p>
+      <p><label for="cMsg">Mensagem: </label><textarea name="tMsg" id="cMsg" cols="45" rows="5" placeholder="deixe aqui a sua mensagem"></textarea></p>
       </fieldset>
 
       <fieldset><legend>Quero um Google Glass</legend>
-      Gostaria de adquirir um Google Glass quando disponível
-      Cor
-      Quantidade
-      Preço Total R$ 
+      <p><input type="checkbox" name="tPed" id="cPed" checked><label for="cPed"> Gostaria de adquirir um Google Glass quando disponível:</label></p>
+      <p><label for="cCor">Cor:</label> <input type="color" name="cCor" id="cCor" value="#0000FF"> </p>
+      <p><label for="cQtd">Quantidade:</label><input type="number" name="tQtd" id="cQtd" min="1" max="10">
+      <p><label for="cTot">Preço Total R$: </label><input type="number" name="tTot" id="cTot" placeholder="total a pagar" readonly> 
       </fieldset>
 
-      Botão Enviar
+      <p> </p>
+      <input type="image" src="btn-enviar.png" alt="">
+      <p> </p>
     </form>
     <footer id="rodape">
       <p>Curso em Video - Copyright 2013 - by Gustavo Guanabara</p>
